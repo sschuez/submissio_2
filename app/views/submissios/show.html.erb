@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% @submissio.sections.each do | section | %>
+	<div class="card">
+		<div class="card-body"><%= section.name %></div>
+	</div>
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_submissio_path(@submissio) %> |
+<%= link_to 'Back', submissios_path %>
