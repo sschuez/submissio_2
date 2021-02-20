@@ -1,7 +1,41 @@
+
+<h1>Sections</h1>
+
 <div class="grid-container">
+	
 	<% @sections.each do | section | %>
+	<% add = 0 %>
+		
 		<div class="section-card">
-			<h3><%= section.name %></h2>
+		
+			<h4>id: <%= section.id %>  -  <%= section.name %></h4>
+			
+			<div class="sections-table">
+				<div class="id-section strong">
+					id
+				</div>
+				<div class="id-name-section strong">
+					id_name
+				</div>
+				<div class="content-section strong">
+					content
+				</div>
+				
+				<% section.questions.each do | question | %>
+					<div class="id-section">
+						<%= question.id %>
+					</div>
+					<div class="id-name-section">
+						<%= question.id_name %>
+					</div>
+					<div class="content-section">
+						<%= question.content %>
+					</div>
+				<% end %>
+			</div>
+
 		</div>
+	
 	<% end %>
+
 </div>

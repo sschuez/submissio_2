@@ -1,12 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<% @submissio.sections.each do | section | %>
-	<div class="card">
-		<div class="card-body"><%= section.name %></div>
-	</div>
-<% end %>
+<h1>Deine Submissio</h1>
+<p>Für die Vergabestelle <%= @submissio.authority %></p>
+<p>Erstellt am <%= @submissio.created_at %></p>
+<p>Referenznummer: <%= @submissio.id %></p>
 
+<div class="grid-container-sections-user">
+	
+	<% @sections.each do | section | %>
+		<div class="section-card section-card-user">
+			<h3 class="card-body"><%= section.name %></h3>
+		</div>
+	<% end %>
+
+</div>
 <br>
+
+<%= link_to "Los geht\'s", submissio_questions_path(@submissio), class: "btn btn-primary" %>
+<br><br>
 
 <%= link_to 'Edit', edit_submissio_path(@submissio) %> |
 <%= link_to 'Back', submissios_path %>
+
+

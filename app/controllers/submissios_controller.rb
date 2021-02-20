@@ -20,6 +20,8 @@ class SubmissiosController < ApplicationController
 		  flash[:notice] = "Please log in to create a new submissio"
 		elsif
 		  @submissio.save
+		  # params[:submissio][:questions]
+		  # params[:submissio][:questions].each {|section_id| Section.create(section_id: section_id, submissio_id: @submissio.id) }
 		  redirect_to submissio_path(@submissio)
 		  flash[:notice] = "Submissio for #{@submissio.authority} has been created"
 		else
@@ -46,6 +48,7 @@ class SubmissiosController < ApplicationController
 
 	def set_submissio
 	  @submissio = Submissio.find(params[:id])
+	  @sections = Section.all
 	end
 
   def submissio_params

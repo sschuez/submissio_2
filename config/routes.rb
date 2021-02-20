@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :submissios do
+  	resources :questions
+  end	
+
+  resources :submissios do
   	resources :answers
   end
 

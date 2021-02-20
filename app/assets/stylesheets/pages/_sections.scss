@@ -1,57 +1,53 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr 1fr;
-  gap: 6px 6px;
+  grid-template-columns: 1fr;
+  // grid-template-rows: 1fr;
+  gap: 24px 24px;
   // grid-template-areas:
     // "section-card . ."
     // ". . ."
     // ". . .";
 }
 
-.section-card {
-	border-radius: 12px;
-	border: 1px solid grey;
-	box-shadow: 0 0 6px rgba(0,0,0,0.2);
-	padding: 20px;
-} //{ grid-area: section-card; }
-
-
-
+.grid-container-sections-user {
+  display:grid;
+  grid-template-columns: 15% 20% 1.2fr;
+  gap: 36px 36px;
+}
 
 // Specific CSS for your home-page
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  .gri-container {
+  .grid-container {
   	 
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .gri-container {
+  .grid-container {
   	 
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .gri-container {
+  .grid-container {
   	 
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .gri-container {
+  .grid-container {
   	 
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .gri-container {
+  .grid-container {
   	 
   }
 }

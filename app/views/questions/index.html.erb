@@ -1,0 +1,21 @@
+<h1>Submission der Beschaffungsstelle <%= @submissio.authority %></h1>
+<p>Erstellt am: <%= @submissio.created_at %></p>
+
+
+<% @sections.each do | section |%>
+	
+	<h3><%= section.name %></h3>		
+		<ul>
+			<% @questions.where(section_id: section.id).each do | question |%>
+				<li class="mb-1">
+					Question: <%= question.content %><br>
+					<% if question.answers.any? %>
+						Answer: <%= question.answers.first.content %>
+					<% else %>
+						Answer: n/a
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+
+<% end %>

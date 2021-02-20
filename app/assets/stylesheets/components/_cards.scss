@@ -1,0 +1,25 @@
+.section-card {
+	border-radius: 12px;
+	box-shadow: 0 0 6px rgba(0,0,0,0.2);
+	padding: 20px;
+	background: white;
+
+	.section-card-user{
+		
+	}
+
+} //{ grid-area: section-card; }
+
+.sections-table {
+	display: grid;
+	grid-template-columns: 10% 20% 1fr;
+	gap: 24px;
+
+	.strong {
+		font-weight: bold;
+		margin-top: 24px; 
+	}
+}
+
+
+
