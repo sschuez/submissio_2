@@ -1,41 +1,42 @@
+<div class="main-card">
+	<h1>Sections</h1>
 
-<h1>Sections</h1>
-
-<div class="grid-container">
-	
-	<% @sections.each do | section | %>
-	<% add = 0 %>
+	<div class="grid-container">
 		
-		<div class="section-card">
-		
-			<h4>id: <%= section.id %>  -  <%= section.name %></h4>
+		<% @sections.each do | section | %>
+		<% add = 0 %>
 			
-			<div class="sections-table">
-				<div class="id-section strong">
-					id
-				</div>
-				<div class="id-name-section strong">
-					id_name
-				</div>
-				<div class="content-section strong">
-					content
-				</div>
+			<div class="section-area">
+			
+				<h4>id: <%= section.id %>  -  <%= section.name %></h4>
 				
-				<% section.questions.each do | question | %>
-					<div class="id-section">
-						<%= question.id %>
+				<div class="sections-table">
+					<div class="id-section strong">
+						id
 					</div>
-					<div class="id-name-section">
-						<%= question.id_name %>
+					<div class="id-name-section strong">
+						id_name
 					</div>
-					<div class="content-section">
-						<%= question.content %>
+					<div class="content-section strong">
+						content
 					</div>
-				<% end %>
+					
+					<% section.questions.each do | question | %>
+						<div class="id-section">
+							<%= question.id %>
+						</div>
+						<div class="id-name-section">
+							<%= question.id_name %>
+						</div>
+						<div class="content-section">
+							<%= question.content %>
+						</div>
+					<% end %>
+				</div>
+
 			</div>
+		
+		<% end %>
 
-		</div>
-	
-	<% end %>
-
+	</div>
 </div>

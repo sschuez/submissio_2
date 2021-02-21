@@ -13,6 +13,19 @@
   display:grid;
   grid-template-columns: 15% 20% 1.2fr;
   gap: 36px 36px;
+
+}
+
+.submissio-overview {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 36px 36px;
+}
+
+
+.section-area {
+  border-bottom: 1px solid;
+  padding: 36px;
 }
 
 // Specific CSS for your home-page

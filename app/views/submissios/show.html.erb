@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="main-card">
 
-<h1>Deine Submissio</h1>
-<p>Für die Vergabestelle <%= @submissio.authority %></p>
-<p>Erstellt am <%= @submissio.created_at %></p>
-<p>Referenznummer: <%= @submissio.id %></p>
+	<h1>Deine submissi.o.</h1>
+	<p>Für die Vergabestelle <%= @submissio.authority %></p>
+	<p>Erstellt am <%= @submissio.created_at %></p>
+	<p>Referenznummer: <%= @submissio.id %></p>
 
-<div class="grid-container-sections-user">
-	
-	<% Section.all.each do | section | %>
-		<div class="section-card section-card-user">
-			<h3 class="card-body"><%= section.name %></h3>
-		</div>
-	<% end %>
+	<div class="submissio-overview">
+		
+		<% Section.all.each do | section | %>
+			<div class="section-card section-card-user">
+				<h4 class="card-body"><%= section.name %></h4>
+			</div>
+		<% end %>
+
+	</div>
+	<br>
+
+	<%= link_to "Bearbeiten", submissio_answers_path(@submissio), class: "btn btn-primary" %>
+	<br><br>
+
+	<!-- <%#= link_to 'Edit', edit_submissio_path(@submissio) %> | -->
+	<%= link_to 'Zurück', submissios_path, class: "btn btn-secondary" %>
 
 </div>
-<br>
-
-<%= link_to "Los geht\'s", submissio_answers_path(@submissio), class: "btn btn-primary" %>
-<br><br>
-
-<%= link_to 'Edit', edit_submissio_path(@submissio) %> |
-<%= link_to 'Back', submissios_path %>
-
 

@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%#= notice %></p> -->
 
-<h1>Submissios</h1>
+<div class="main-card">
+  <h1>Submissios</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">User</th>
-      <th scope="col">Vergabestelle</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @submissios.each do |submissio| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= submissio.id %></td>
-        <td><%= submissio.user.email %></td>
-        <td><%= submissio.authority %></td>
-        <td><%= link_to 'Show', submissio %></td>
-        <td><%= link_to 'Edit', edit_submissio_path(submissio) %></td>
-        <td><%= link_to 'Destroy', submissio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">ID</th>
+        <th scope="col">User</th>
+        <th scope="col">Vergabestelle</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @submissios.each do |submissio| %>
+        <tr>
+          <td><%= submissio.id %></td>
+          <td><%= submissio.user.email %></td>
+          <td><%= submissio.authority %></td>
+          <td><%= link_to 'Show', submissio %></td>
+          <td><%= link_to 'Edit', edit_submissio_path(submissio) %></td>
+          <td><%= link_to 'Destroy', submissio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Submissio', new_submissio_path, class: "btn btn-primary" %>
+  <br>
+
+  <%= link_to 'New Submissio', new_submissio_path, class: "btn btn-primary" %>
+</div>

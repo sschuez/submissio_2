@@ -21,7 +21,6 @@ class SubmissiosController < ApplicationController
 		elsif
 		  @submissio.save
 		  params[:submissio][:questions]
-		  # params[:submissio][:questions].each {|section_id| Section.create(section_id: section_id, submissio_id: @submissio.id) }
 		  redirect_to submissio_path(@submissio)
 		  flash[:notice] = "Submissio for #{@submissio.authority} has been created"
 		else
