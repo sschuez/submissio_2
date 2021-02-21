@@ -1,0 +1,68 @@
+<script type="text/javascript">         
+  function reloadPage() {
+  // The last "domLoading" Time //
+  var currentDocumentTimestamp =
+  new Date(performance.timing.domLoading).getTime();
+  // Current Time //
+  var now = Date.now();
+  // Ten Seconds //
+  var tenSec = 0.1 * 1000;
+  // Plus Ten Seconds //
+  var plusTenSec = currentDocumentTimestamp + tenSec;
+  if (now > plusTenSec) {
+  location.reload();
+  } else {}
+  }
+  reloadPage();
+</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 main-card">
+
+    	<%= render 'shared/timeline' %>
+
+			<%= form_for @submissio do | f |  %>
+				<% Section.all.each_with_index do | section, index | %>
+					<div id="sectionsDiv" data-sectionlength="<%= Section.all.length %>">
+						<div class="sub-form form-step" <%= 'hidden' if index > 0 %> id="step-<%= index + 1 %>">
+							<h1><%= section.name %></h1>
+							<hr/>
+							<p> <%= section.description %></p>
+							<br>
+							<h4>Details</h4>
+							<div class="form-input-width-80">
+			          <hr/>
+			          <% section.questions.each do | question | %>
+			          	<div class="input-wrapper">
+			          		<div class="question-content">
+			          		  <%= question.content %>
+			          		</div>
+			          		<!-- Checking if there is a question -->
+			          		<% answer = @submissio.answers.find_by(question: question) || Answer.create(question: question, submissio: @submissio) %>
+			          		<div class="question-content">
+			          			<% if question.data_type == "yes or no" %>
+			          				<select name="answers[<%= answer.id %>]" style="width:100%" type="<%= question.data_type %>" value="<%= answer.content %>" name="answers[<%= answer.id %>]" class= " input ">
+			        					  <option value="yes">yes</option>
+			        					  <option value="no">no</option>
+			        					</select>
+			        				<% else %>
+			        					<input style="width:100%" type="<%= question.data_type %>" value="<%= answer.content %>" name="answers[<%= answer.id %>]" id="<%= 'submissio_address' if question.data_type.include?("address") %>" class= "<%= 'datepicker' if question.data_type.include?("date") %> <%= 'datepicker-time' if question.data_type.include?("datetime-local") %> input <%= 'dropdown' if question.data_type.include?("yes or no") %>">
+			          			<% end %>
+			          		</div>
+			          	</div>
+			          <% end %>
+			        </div>
+			      </div>
+			    </div>  
+				<% end %>
+				<br>
+			  <%= f.button :"Submit Submissio", id:"submit", class:"btn btn-primary submit submit"  %>
+			<% end %>	
+			<br>
+			<button class="btn btn-secondary" id="previous">Previous</button>
+			<button class="btn btn-secondary" id="next">Next</button>
+
+		</div>
+	</div>
+</div>

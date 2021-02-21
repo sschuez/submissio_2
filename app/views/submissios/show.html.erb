@@ -7,7 +7,7 @@
 
 <div class="grid-container-sections-user">
 	
-	<% @sections.each do | section | %>
+	<% Section.all.each do | section | %>
 		<div class="section-card section-card-user">
 			<h3 class="card-body"><%= section.name %></h3>
 		</div>
@@ -16,7 +16,7 @@
 </div>
 <br>
 
-<%= link_to "Los geht\'s", submissio_questions_path(@submissio), class: "btn btn-primary" %>
+<%= link_to "Los geht\'s", submissio_answers_path(@submissio), class: "btn btn-primary" %>
 <br><br>
 
 <%= link_to 'Edit', edit_submissio_path(@submissio) %> |
