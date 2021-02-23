@@ -23,7 +23,7 @@ class formWizard {
   attachListeners() {
     const btn = document.getElementById("next")
     if (btn) {
-      document.getElementById("next").addEventListener("click", this.nextTab.bind(this));
+      btn.addEventListener("click", this.nextTab.bind(this));
       document.getElementById("previous").addEventListener("click", this.previousTab.bind(this));
     }
   }
@@ -88,5 +88,48 @@ const editSubmissio = document.querySelector(".edit_submissio");
 if (editSubmissio) {
   new formWizard();
 }
+
+
+// Ajax update on NEXT click
+const btn = document.getElementById('next');
+
+btn.addEventListener('click', saveAndNext);
+
+function saveAndNext() {
+  const formValues = document.querySelectorAll('input');
+  formValues.forEach((input) => {
+    if (input.type !== "hidden") {
+      const inputValue = input.value;
+      const inputParam = input.attributes.name;
+      // console.log(inputParam);
+      console.log(`Input is ${inputValue} - Param name: ${inputParam}`);
+    }
+  }); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

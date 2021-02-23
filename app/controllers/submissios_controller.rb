@@ -36,7 +36,12 @@ class SubmissiosController < ApplicationController
 		  answer = Answer.find(k)
 		  answer.content = v
 		  answer.submissio = @submissio
-		  answer.save
+		  respond_to do | format |
+			  if answer.save
+			  	format.html
+			  	format.json { render :show, status: :ok, location: @submissio }
+			  end
+			end
 			end
 		redirect_to submissio_path(@submissio)
 		flash[:notice] = "Submissio for #{@submissio.authority} has been updated"
